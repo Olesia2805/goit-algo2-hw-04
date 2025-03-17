@@ -2,11 +2,11 @@ from trie import Trie
 
 
 class Homework(Trie):
-    def count_words_with_suffix(self, pattern) -> int:
-        pass
+    def count_words_with_suffix(self, pattern: str) -> int:
+        return sum(1 for key in self.keys() if key.endswith(pattern))
 
-    def has_prefix(self, prefix) -> bool:
-        pass
+    def has_prefix(self, prefix: str) -> bool:
+        return any(key.startswith(prefix) for key in self.keys())
 
 
 if __name__ == "__main__":
@@ -26,3 +26,5 @@ if __name__ == "__main__":
     assert trie.has_prefix("bat") == False
     assert trie.has_prefix("ban") == True  # banana
     assert trie.has_prefix("ca") == True  # cat
+
+    print("All tests passed.")
